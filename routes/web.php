@@ -35,14 +35,14 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 //});
 
 
-Route::get('/author/{author:username}',function (User $author){
-    return view('posts', [
-//        'posts' => $author->posts->load(['category', 'author'])
-        'posts' => $author->posts,  // we repeals load to with in model post
-        'categories' => Category::all()
-
-    ]);
-});
+//Route::get('/authors/{author:username}',function (User $author){
+//    return view('posts.index', [
+////        'posts' => $author->posts->load(['category', 'author'])
+//        'posts' => $author->posts,  // we repeals load to with in model post
+//        'categories' => Category::all()
+//
+//    ]);
+//});
 
 
 

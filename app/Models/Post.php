@@ -22,7 +22,7 @@ class Post extends Model
 
         $query->when($filters['category'] ?? false, function ($query, $category){
             $query->whereHas('category', fn($query) =>
-                $query->where('slug', $category)
+            $query->where('slug', $category)
             );
 
 //                === OR ===
@@ -34,6 +34,13 @@ class Post extends Model
 //                );
         });
 
+        $query->when($filters['author'] ?? false, function ($query, $author){
+            $query->whereHas('author', fn($query) =>
+            $query->where('username', $author)
+            );
+        });
+
+
 //     ==== OR ====
 //        if ($filters['search'] ?? false)
 //        {
@@ -42,14 +49,6 @@ class Post extends Model
 //                    ->OrWhere('body', 'like', '%'. request('search') .'%');
 //        }
     }
-
-
-
-
-//    public function getRouteKeyName()
-//    {
-//        return 'slug';
-//    }
 
     public function category()
     {
@@ -61,4 +60,11 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+//    When you use slug
+//    public function getRouteKeyName()
+//    {
+//        return 'slug';
+//    }
+
 }

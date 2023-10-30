@@ -46,7 +46,7 @@ class PostController extends Controller
 
 //    ==== OR ====
 
-       return Post::latest()->filter(request(['search', 'category']))->get();
+       return Post::latest()->filter(request(['search', 'category', 'author']))->get();
 
     }
 //    End getPost
