@@ -46,7 +46,8 @@ class PostController extends Controller
 
 //    ==== OR ====
 
-       return Post::latest()->filter(request(['search', 'category', 'author']))->get();
+       return Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(); // that is mean when you search for something and go to page to the search applied.
+
 
     }
 //    End getPost

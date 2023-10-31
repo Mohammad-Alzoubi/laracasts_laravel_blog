@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
              'username' => 'mohammad-Alzoubi'
          ]);
 
-         Post::factory(10)->create([
+         Post::factory(15)->create([
              'user_id' => $user_id
          ]);
 
