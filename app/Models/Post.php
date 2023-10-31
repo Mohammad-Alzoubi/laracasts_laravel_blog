@@ -15,9 +15,10 @@ class Post extends Model
     public function scopeFilter($query, array $filters) // how you can request =>   Post::newQuery()->filter()
     {
         $query->when($filters['search'] ?? false, function ($query, $search){
-            $query
-                ->where('title', 'like', '%'. $search .'%')
-                ->OrWhere('body', 'like', '%'. $search .'%');
+            $query->where(fn($query) =>
+                $query->where('title', 'like', '%'. $search .'%')
+                ->OrWhere('body', 'like', '%'. $search .'%')
+            );
         });
 
         $query->when($filters['category'] ?? false, function ($query, $category){
