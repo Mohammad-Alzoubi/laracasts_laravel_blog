@@ -34,23 +34,23 @@ class DatabaseSeeder extends Seeder
 
 
 
-//         $work = Category::create([
+//         $work = Category::create.blade.php([
 //             'name'=>'Work',
 //             'slug'=>'work'
 //         ]);
 //
-//         $personal = Category::create([
+//         $personal = Category::create.blade.php([
 //             'name'=>'Personal',
 //             'slug'=>'personal'
 //         ]);
 //
-//         $hobbies = Category::create([
+//         $hobbies = Category::create.blade.php([
 //             'name'=>'Hobbies',
 //             'slug'=>'hobbies'
 //         ]);
 //
 //
-//         $first_post  = Post::create([
+//         $first_post  = Post::create.blade.php([
 //             'user_id' => 1,
 //             'category_id' => $hobbies->id,
 //             'title' => $title = 'this is the first post',
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
 //             'excerpt' => '<p>Lorem ipsum dolor sit amet</p>',
 //             'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, deserunt.</p>',
 //         ]);
-//         $second_post = Post::create([
+//         $second_post = Post::create.blade.php([
 //             'user_id' => 1,
 //             'category_id' => $hobbies->id,
 //             'title' => $title = 'this is the second post',
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
 //             'excerpt' => '<p>Lorem ipsum dolor sit amet</p>',
 //             'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, deserunt.</p>',
 //         ]);
-//         $third_post  = Post::create([
+//         $third_post  = Post::create.blade.php([
 //             'user_id' => 1,
 //             'category_id' => $work->id,
 //             'title' => $title = 'this is the third post',
