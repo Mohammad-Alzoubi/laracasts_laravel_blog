@@ -22,6 +22,6 @@ class RegisterController extends Controller
         ]);
 
         User::create($attributes);
-        dd('validate');
+        dd('create user');
     }
 }
