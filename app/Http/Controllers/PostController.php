@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
@@ -35,6 +37,25 @@ class PostController extends Controller
     public function create()
     {
         return view('posts.create');
+    }
+
+
+    public function store()
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $attributes['slug']    = str::slug(request('title'));
+
+        Post::create($attributes);
+
+        dd('done');
+        return back();
     }
 
 
