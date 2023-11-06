@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,6 +30,11 @@ class PostController extends Controller
             'post'   => $post // Or
 //        'post' => Post::findOrFail($post)
         ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
     }
 
 
