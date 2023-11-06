@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class CategoryFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,8 +16,9 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $name = $this->faker->word(),
-            'slug' => str::slug($name),
+            'post_id' => Post::factory(),
+            'user_id' => User::factory(),
+            'body'    => $this->faker->paragraph()
         ];
     }
 }

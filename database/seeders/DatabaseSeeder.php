@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate(); // because don't repeat data in database
-        Post::truncate();
-        Category::truncate();
+//        User::truncate(); // because don't repeat data in database
+//        Post::truncate();
+//        Category::truncate();
 
 
          $user_id = User::factory()->create([
@@ -27,9 +27,10 @@ class DatabaseSeeder extends Seeder
              'username' => 'mohammad-Alzoubi'
          ]);
 
-         Post::factory(15)->create([
+         Post::factory(5)->create([
              'user_id' => $user_id
          ]);
+
 
 
 
