@@ -20,6 +20,7 @@
 {{--            @guest @endguest--}}
             @auth
                 <span class="text-xs font-bold uppercase">Welcome {{ auth()->user()->name }}!</span>
+                <a href="/admin/posts/create" class="text-xs font-bold uppercase  text-blue-500 ml-6 ">create post</a>
 
                 <form action="/logout" method="post" class="text-xs font-semibold text-blue-500 ml-6">
                     @csrf

@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'category_id', 'title', 'slug', 'excerpt', 'body'];
+    protected $fillable = ['user_id', 'category_id', 'title', 'slug', 'excerpt', 'body', 'thumbnail'];
     Protected $with     = ['category', 'author'];
 
     public function scopeFilter($query, array $filters) // how you can request =>   Post::newQuery()->filter()
