@@ -11,7 +11,7 @@
             <x-form.textarea name="body" required />
 
             <x-form.field>
-                <x-form.lable name="category" />
+                <x-form.label name="category" />
 
                 <select name="category_id" id="category_id" required>
                     @foreach (\App\Models\Category::all() as $category)

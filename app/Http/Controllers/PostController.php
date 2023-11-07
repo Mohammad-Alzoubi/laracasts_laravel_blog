@@ -34,33 +34,8 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return view('posts.create');
-    }
 
-
-    public function store()
-    {
-        $attributes = request()->validate([
-            'title'       => 'required',
-            'thumbnail'   => 'required|image',
-            'excerpt'     => 'required',
-            'body'        => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')],
-        ]);
-
-        $attributes['user_id'] = auth()->id();
-        $attributes['slug']    = str::slug(request('title'));
-        $attributes['thumbnail']    = request()->file('thumbnail')->store('thumbnail');
-
-        Post::create($attributes);
-
-        return redirect('/');
-    }
-
-
-//    Start getPost
+    //    Start getPost
     protected function getPosts()
     {
 
@@ -74,9 +49,9 @@ class PostController extends Controller
 
 //    ==== OR ====
 
-       return Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(); // that is mean when you search for something and go to page to the search applied.
+        return Post::latest()->filter(request(['search', 'category', 'author']))->paginate(6)->withQueryString(); // that is mean when you search for something and go to page to the search applied.
 
 
     }
-//    End getPost
+    //    End getPost
 }
