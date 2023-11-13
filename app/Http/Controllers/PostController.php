@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,13 @@ class PostController extends Controller
 
     public function index()
     {
+        /* // you can access the admin use these ways
+        dd(Gate::allows('admin'));
+ OR
+     dd(request()->user()->can('admin'));
+ OR
+        $this->authorize('admin');
+        */
 
 //    check logger:
 //    DB::listen(function ($query) {
